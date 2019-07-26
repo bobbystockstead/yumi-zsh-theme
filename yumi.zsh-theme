@@ -52,7 +52,7 @@ function printDashes() {
     if [ `pwd` = '/Users/z002mrf' ]; then
         shortPath='~'
     else 
-        shortPath=`pwd | gawk -F/ '{print $(NF-2)"/"$(NF-1)"/"$NF}' | sed -e "s/Users\/z002mrf/~/g" | sed -e "s/z002mrf/~/g"`
+        shortPath=`pwd | sed -e "s/Users\/z002mrf/~/g" | gawk -F/ '{print $(NF-2)"/"$(NF-1)"/"$NF}'`
     fi
 
     pathLength=`echo $shortPath | wc -m | tr -d ' '`
